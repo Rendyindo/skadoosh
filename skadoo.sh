@@ -4,6 +4,7 @@
 # 2016
 
 export DIR=$(pwd)
+export ROMNAME=TWRP-6.0
 
 sudo apt install expect
 # Functions
@@ -63,7 +64,7 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u https://github.com/MiCode/patchrom -b marshmallow --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://github.com/lj50036/platform_manifest_twrp_omni -b twrp-6.0 --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
@@ -109,7 +110,7 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    expect -c 'spawn ~/bin/repo init -u https://github.com/MiCode/patchrom -b marshmallow; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://github.com/lj50036/platform_manifest_twrp_omni -b twrp-6.0; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
