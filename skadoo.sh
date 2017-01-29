@@ -5,10 +5,10 @@
 
 
 # Definitions
-BRANCH=$3
-DIR=$(pwd)
-LINK=$2
-ROMNAME=$1
+export BRANCH=$3
+export DIR=$(pwd)
+export LINK=$2
+export ROMNAME=$1
 
 sudo apt install expect
 # Functions
