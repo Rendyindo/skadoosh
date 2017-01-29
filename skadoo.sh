@@ -4,11 +4,6 @@
 # 2016
 
 
-# Definitions
-export BRANCH=$3
-export DIR=$(pwd)
-export LINK=$2
-export ROMNAME=$1
 
 sudo apt install expect
 # Functions
