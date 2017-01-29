@@ -24,4 +24,4 @@ branch=lollipop5.1
 
 
 ### Finally, execute the stuff. ###
-/bin/bash skadoo.sh $name $manifest $branch
+./skadoo.sh $name $manifest $branch
