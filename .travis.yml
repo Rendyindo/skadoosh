@@ -2,4 +2,8 @@ dist: trusty
 install: true
 sudo: required
 script:
+  - sudo apt install repo
+  - sudo apt install bc
+  - sudo apt install pxz
+  - sudo apt install wput
   - ./compress.bash
