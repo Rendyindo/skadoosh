@@ -1,6 +1,4 @@
 dist: trusty
-# we're not installing anything
 install: true
-
 script:
   - ./compress.bash
