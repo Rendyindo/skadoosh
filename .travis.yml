@@ -2,7 +2,10 @@ dist: trusty
 install: true
 sudo: required
 script:
-  - sudo apt install repo
+  - mkdir ~/bin
+  - PATH=~/bin:$PATH
+  - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+  - chmod a+x ~/bin/repo
   - sudo apt install bc
   - sudo apt install pxz
   - sudo apt install wput
