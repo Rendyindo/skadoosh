@@ -113,7 +113,7 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    repo init -u $LINK -b $BRANCH
+    expect -c 'repo init -u $LINK -b $BRANCH; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
