@@ -67,7 +67,7 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    repo init -u $LINK -b $BRANCH --depth 1 -q --reference $DIR/$ROMNAME/full/
+    expect -c 'repo init -u $LINK -b $BRANCH --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
