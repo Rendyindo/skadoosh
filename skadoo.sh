@@ -10,6 +10,7 @@ DIR=$(pwd)
 LINK=$2
 ROMNAME=$1
 
+sudo apt install expect
 # Functions
 installstuff(){
     # VENDOREDIT
