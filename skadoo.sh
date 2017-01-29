@@ -109,7 +109,7 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    expect -c 'spawn ~/dev/repo init -u https://github.com/ResurrectionRemix/platform_manifest -b lollipop5.1; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://github.com/ResurrectionRemix/platform_manifest -b lollipop5.1; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
