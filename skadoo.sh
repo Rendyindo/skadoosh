@@ -110,9 +110,9 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    expect -c 'spawn ~/bin/repo init -u https://android.googlesource.com/platform/manifest/ -b android-7.1.1_r21; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b lollipop; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
-    THREAD_COUNT_SYNC=8
+    THREAD_COUNT_SYNC=16
 
     # Sync it up!
     time repo sync -c -f --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
