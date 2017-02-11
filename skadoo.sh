@@ -115,7 +115,7 @@ dofull(){
     THREAD_COUNT_SYNC=16
 
     # Sync it up!
-    time repo sync -c -f --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
+    time repo sync -c -f -n --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
 
 
     cd $DIR/$ROMNAME/
