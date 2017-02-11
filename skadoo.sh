@@ -110,7 +110,7 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    expect -c 'spawn ~/bin/repo init -u https://github.com/lj50036/platform_manifest_twrp_omni -b twrp-6.0; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://android.googlesource.com/platform/manifest/ -b android-7.1.1_r21; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=8
 
@@ -177,10 +177,10 @@ doallstuff(){
     installstuff
 
     # Compress full
-    #dofull
+    dofull
 
     # Compress shallow
-    doshallow
+    #doshallow
 
     # Upload that shit
     upload
