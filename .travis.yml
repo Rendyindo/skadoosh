@@ -9,4 +9,4 @@ script:
   - sudo apt install bc
   - sudo apt install pxz
   - sudo apt install wput
-  - travis_wait 60 ./skadoo.sh
+  - ./skadoo.sh
