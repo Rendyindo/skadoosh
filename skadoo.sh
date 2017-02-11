@@ -4,7 +4,7 @@
 # 2016
 
 export DIR=$(pwd)
-export ROMNAME=TWRP-6.0
+export ROMNAME=N-r21
 
 sudo apt install expect
 # Functions
@@ -64,12 +64,12 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u https://github.com/lj50036/platform_manifest_twrp_omni -b twrp-6.0 --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u https://android.googlesource.com/platform/manifest/ -b android-7.1.1_r21 --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
-    THREAD_COUNT_SYNC=8
+    THREAD_COUNT_SYNC=16
 
     # Sync it up!
-    time repo sync -c -f --force-sync --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
+    time repo sync -c -f -n --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
 
 
     cd $DIR/$ROMNAME/
@@ -177,7 +177,7 @@ doallstuff(){
     installstuff
 
     # Compress full
-    dofull
+    #dofull
 
     # Compress shallow
     doshallow
