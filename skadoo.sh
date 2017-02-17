@@ -5,6 +5,8 @@
 
 export DIR=$(pwd)
 export ROMNAME=N-r21
+export ROMLINK=https://github.com/FlymeOS/manifest.git
+export BRANCH=lollipop-5.1
 
 sudo apt install expect
 # Functions
@@ -64,7 +66,7 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u https://android.googlesource.com/platform/manifest/ -b android-7.1.1_r21 --depth 1 -q --reference $DIR/$ROMNAME/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=16
 
@@ -110,7 +112,7 @@ doshallow(){
 dofull(){
     cd $DIR; mkdir -p $ROMNAME/full; cd $ROMNAME/full
 
-    expect -c 'spawn ~/bin/repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b lollipop; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH); expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=16
 
@@ -180,7 +182,7 @@ doallstuff(){
     dofull
 
     # Compress shallow
-    #doshallow
+    doshallow
 
     # Upload that shit
     upload
