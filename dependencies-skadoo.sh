@@ -14,16 +14,11 @@
 # Please maintain this if you use this script or any part of it
 #
 
-sudo apt-add-repository ppa:openjdk-r/ppa -y
+sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
 sudo apt-get clean
-sudo apt-get --download-only -y install git-core python gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.8-dev \
-squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev openjdk-8-jre openjdk-8-jdk pngcrush \
-schedtool libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev lib32ncurses5-dev \
-gcc-multilib liblz4-* pngquant ncurses-dev texinfo gcc gperf patch libtool \
-automake g++ gawk subversion expat libexpat1-dev python-all-dev binutils-static bc libcloog-isl-dev \
-libcap-dev autoconf libgmp-dev build-essential gcc-multilib g++-multilib pkg-config libmpc-dev libmpfr-dev lzma* \
-liblzma* w3m android-tools-adb maven ncftp figlet
+sudo apt-get --download-only install winehq-devel
+sudo apt-get --download-only dist-upgrade
 cd /var/cache/apt/archives
 sudo zip -r -y dependencies-rom-amd64.zip *
 sudo wput dependencies-rom-amd64.zip ftp://"$USER":"$PASSWD"@"$HOST"/
