@@ -19,5 +19,5 @@ sudo apt-get update
 sudo apt-get clean
 sudo apt-get --download-only install winehq-devel
 cd /var/cache/apt/archives
-sudo zip -r -y dependencies-rom-amd64.zip *
-sudo wput dependencies-rom-amd64.zip ftp://"$USER":"$PASSWD"@"$HOST"/
+sudo zip -r -y dependencies-wine-amd64.zip *
+sudo wput dependencies-wine-amd64.zip ftp://"$USER":"$PASSWD"@"$HOST"/
