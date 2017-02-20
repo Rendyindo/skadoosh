@@ -18,7 +18,6 @@ sudo add-apt-repository ppa:wine/wine-builds
 sudo apt-get update
 sudo apt-get clean
 sudo apt-get --download-only install winehq-devel
-sudo apt-get --download-only dist-upgrade
 cd /var/cache/apt/archives
 sudo zip -r -y dependencies-rom-amd64.zip *
 sudo wput dependencies-rom-amd64.zip ftp://"$USER":"$PASSWD"@"$HOST"/
