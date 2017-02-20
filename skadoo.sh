@@ -4,7 +4,7 @@
 # 2016
 
 export DIR=$(pwd)
-export ROMNAME=N-r21
+export ROMNAME=FlymeOS
 export ROMLINK=https://github.com/FlymeOS/manifest.git
 export BRANCH=lollipop-5.1
 
