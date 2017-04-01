@@ -4,11 +4,11 @@
 # 2016
 
 export DIR=$(pwd)
-export ROMNAME=FlymeOS
-export ROMLINK=https://github.com/FlymeOS/manifest.git
-export BRANCH=lollipop-5.1
+export ROMNAME=$1
+export ROMLINK=$2
+export BRANCH=$3
 
-sudo apt install expect
+sudo apt install expect repo bc pxz wput
 # Functions
 installstuff(){
     # VENDOREDIT
@@ -66,9 +66,9 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/full/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/shallow/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
-    THREAD_COUNT_SYNC=16
+    THREAD_COUNT_SYNC=64
 
     # Sync it up!
     time repo sync -c -f -n --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
@@ -114,7 +114,7 @@ dofull(){
 
     expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH); expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
-    THREAD_COUNT_SYNC=16
+    THREAD_COUNT_SYNC=64
 
     # Sync it up!
     time repo sync -c -f -n --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
