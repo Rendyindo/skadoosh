@@ -70,7 +70,7 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/shallow/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) -c --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/shallow/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=64
 
