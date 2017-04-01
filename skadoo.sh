@@ -8,7 +8,11 @@ export ROMNAME=$1
 export ROMLINK=$2
 export BRANCH=$3
 
-sudo apt install expect repo bc pxz wput
+sudo apt install expect bc pxz wput
+PATH=~/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+
 # Functions
 installstuff(){
     # VENDOREDIT
