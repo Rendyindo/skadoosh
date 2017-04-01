@@ -84,7 +84,7 @@ doshallow(){
     mv shallow/.repo/ $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)
     cd $DIR/$ROMNAME/
     export XZ_OPT=-9e
-    time tar -I pxz -cvf $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)/
+    time zip -r -y $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)/
     # Definitions
     if [ -z "$HOST" ]; then
         echo "Please read the instructions"
@@ -130,7 +130,7 @@ dofull(){
     mv full/.repo $ROMNAME-$BRANCH-full-$(date +%Y%m%d)
     cd $DIR/$ROMNAME/
     export XZ_OPT=-9e
-    time tar -I pxz -cvf $ROMNAME-$BRANCH-full-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-full-$(date +%Y%m%d)/
+    time zip -r -y $ROMNAME-$BRANCH-full-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-full-$(date +%Y%m%d)/
     # Definitions
     if [ -z "$HOST" ]; then
         echo "Please read the instructions"
