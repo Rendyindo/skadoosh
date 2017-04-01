@@ -159,6 +159,53 @@ dofull(){
 
 }
 
+dofiles(){
+    cd $DIR; mkdir -p $ROMNAME/files; cd $ROMNAME/files
+
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH); expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+
+    THREAD_COUNT_SYNC=64
+
+    # Sync it up!
+    time repo sync -c -f -n --force-sync -q --no-clone-bundle --no-tags -j$THREAD_COUNT_SYNC
+
+
+    cd $DIR/$ROMNAME/
+
+    mkdir $ROMNAME-$BRANCH-full-$(date +%Y%m%d)
+    rm -rf files/.repo
+    mv files $ROMNAME-$BRANCH-full-$(date +%Y%m%d)
+    cd $DIR/$ROMNAME/
+    export XZ_OPT=-9e
+    time zip -r -y $ROMNAME-$BRANCH-files-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-full-$(date +%Y%m%d)/
+    # Definitions
+    if [ -z "$HOST" ]; then
+        echo "Please read the instructions"
+        echo "HOST is not set"
+        echo "Uploading failed"
+        exit 1
+    fi
+
+    if [ -z "$USER" ]; then
+        echo "Please read the instructions"
+        echo "USER is not set"
+        echo "Uploading failed"
+        exit 1
+    fi
+
+    if [ -z "$PASSWD" ]; then
+        echo "Please read the instructions"
+        echo "PASSWD is not set"
+        echo "Uploading failed"
+        exit 1
+    fi
+
+    FULL="$ROMNAME-$BRANCH-files-$(date +%Y%m%d).tar.xz"
+
+    cd $DIR/$ROMNAME/
+
+}
+
 upload(){
   if [ -e $FULL ]; then
     wput $FULL ftp://"$USER":"$PASSWD"@"$HOST"/
@@ -182,8 +229,8 @@ doallstuff(){
     # Install stuff
     installstuff
 
-    # Compress full
-    dofull
+    # Compress files
+    dofiles
 
     # Compress shallow
     doshallow
