@@ -70,7 +70,7 @@ checkfinishtime(){
 doshallow(){
     cd $DIR; mkdir -p $ROMNAME/shallow; cd $ROMNAME/shallow
 
-    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) -c --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/shallow/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
+    expect -c 'spawn ~/bin/repo init -u $env(ROMLINK) -b $env(BRANCH) --depth 1 -q --reference $env(DIR)/$env(ROMNAME)/shallow/; expect "Enable color display in this user account (y/N)?"; send -- "y\r"; expect eof'
 
     THREAD_COUNT_SYNC=64
 
@@ -84,7 +84,7 @@ doshallow(){
     mv shallow/.repo/ $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)
     cd $DIR/$ROMNAME/
     export XZ_OPT=-9e
-    time zip -r -y $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)/
+    time zip -r -y $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).zip $ROMNAME-$BRANCH-shallow-$(date +%Y%m%d)/
     # Definitions
     if [ -z "$HOST" ]; then
         echo "Please read the instructions"
@@ -107,7 +107,7 @@ doshallow(){
         exit 1
     fi
 
-    SHALLOW="$ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).tar.xz"
+    SHALLOW="$ROMNAME-$BRANCH-shallow-$(date +%Y%m%d).zip"
 
     cd $DIR/$ROMNAME/
 
@@ -177,7 +177,7 @@ dofiles(){
     mv files $ROMNAME-$BRANCH-full-$(date +%Y%m%d)
     cd $DIR/$ROMNAME/
     export XZ_OPT=-9e
-    time zip -r -y $ROMNAME-$BRANCH-files-$(date +%Y%m%d).tar.xz $ROMNAME-$BRANCH-full-$(date +%Y%m%d)/
+    time zip -r -y $ROMNAME-$BRANCH-files-$(date +%Y%m%d).zip $ROMNAME-$BRANCH-full-$(date +%Y%m%d)/
     # Definitions
     if [ -z "$HOST" ]; then
         echo "Please read the instructions"
@@ -200,17 +200,17 @@ dofiles(){
         exit 1
     fi
 
-    FULL="$ROMNAME-$BRANCH-files-$(date +%Y%m%d).tar.xz"
+    FILES="$ROMNAME-$BRANCH-files-$(date +%Y%m%d).zip"
 
     cd $DIR/$ROMNAME/
 
 }
 
 upload(){
-  if [ -e $FULL ]; then
-    wput $FULL ftp://"$USER":"$PASSWD"@"$HOST"/
+  if [ -e $FILES ]; then
+    wput $FILES ftp://"$USER":"$PASSWD"@"$HOST"/
   else
-    echo "$FULL does not exist. Not uploading the shallow tarball."
+    echo "$FILES does not exist. Not uploading the shallow tarball."
   fi
 
   if [ -e $SHALLOW ]; then
