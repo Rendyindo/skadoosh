@@ -10,17 +10,17 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=mokee
+name=candyrom
 
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/MoKee/android
+manifest=https://github.com/CandyRoms/candy
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=mkm
+branch=c6
 
 
 ### Finally, execute the stuff. ###
