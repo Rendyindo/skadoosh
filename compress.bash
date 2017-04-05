@@ -10,17 +10,17 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=omni
+name=mokee
 
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/omnirom/android
+manifest=https://github.com/MoKee/android
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=android-6.0
+branch=mkm
 
 
 ### Finally, execute the stuff. ###
