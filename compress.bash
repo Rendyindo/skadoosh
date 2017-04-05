@@ -10,7 +10,7 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=RR
+name=Omni
 
 
 # Manifest link. https:// is mandatory.
