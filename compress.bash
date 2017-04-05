@@ -20,7 +20,7 @@ manifest=https://github.com/omnirom/android
 
 # Manifest branch.
 # Example: cm-14.0
-branch=android-5.1
+branch=android-6.0
 
 
 ### Finally, execute the stuff. ###
