@@ -15,12 +15,12 @@ name=RR
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/ResurrectionRemix/platform_manifest
+manifest=https//github.com/omnirom/android
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=lollipop5.1
+branch=android-5.1
 
 
 ### Finally, execute the stuff. ###
