@@ -15,7 +15,7 @@ name=Mokee
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/MoKee/android/tree/mkl-mr1
+manifest=https://github.com/MoKee/android
 
 
 # Manifest branch.
