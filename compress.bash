@@ -10,17 +10,17 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=candyrom
+name=blissrom
 
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/CandyRoms/candy
+manifest=https://github.com/BlissRoms/platform_manifest
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=c6
+branch=new-mm6.0
 
 
 ### Finally, execute the stuff. ###
