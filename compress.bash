@@ -10,17 +10,17 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=blissrom
+name=minimal
 
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/BlissRoms/platform_manifest
+manifest=https://github.com/MinimalOS-AOSP/platform_manifest
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=new-mm6.0
+branch=mr1
 
 
 ### Finally, execute the stuff. ###
