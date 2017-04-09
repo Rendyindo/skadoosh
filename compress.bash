@@ -15,12 +15,12 @@ name=minimal
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/MinimalOS-AOSP/platform_manifest
+manifest=https://github.com/nitrogen-project-mm/nitrogen_manifest
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=mr1
+branch=mm6.0
 
 
 ### Finally, execute the stuff. ###
