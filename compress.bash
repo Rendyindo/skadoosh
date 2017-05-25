@@ -10,17 +10,17 @@
 
 # Name of the ROM. No Spaces Please.
 # Example: CyanogenMod
-name=nitrogen
+name=Flyme6-X510
 
 
 # Manifest link. https:// is mandatory.
 # Example: https://github.com/cyanogenmod/android
-manifest=https://github.com/nitrogen-project-mm/nitrogen_manifest
+manifest=https://github.com/Rendyindo/manifest
 
 
 # Manifest branch.
 # Example: cm-14.0
-branch=mm6.0
+branch=mm
 
 
 ### Finally, execute the stuff. ###
