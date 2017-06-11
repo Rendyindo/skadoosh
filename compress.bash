@@ -20,7 +20,7 @@ manifest=https://github.com/Rendyindo/manifest
 
 # Manifest branch.
 # Example: cm-14.0
-branch=mm
+branch=marshmallow-6.0
 
 
 ### Finally, execute the stuff. ###
